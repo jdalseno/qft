@@ -1,0 +1,5 @@
+Import('*')
+
+src_tensor = Glob('*.C')
+
+Export(['env', 'src_tensor'])

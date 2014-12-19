@@ -1,0 +1,10 @@
+Import('*')
+
+env.SConscript('tensor/SConscript')
+env.SConscript('relativistic-quantum-mechanics/SConscript')
+
+Import('*')
+
+lib_qft = env.SharedLibrary('../lib/qft++', src_tensor + src_rqm)
+
+Export(['env', 'lib_qft'])

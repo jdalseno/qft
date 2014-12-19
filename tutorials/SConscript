@@ -1,0 +1,6 @@
+Import('*')
+
+src_tutorial = Glob('*.cxx')
+
+for i in src_tutorial:
+    env.Program(str(i)[:-4], [i], LIBS = ['qft++'], LIBPATH = ['../lib'])

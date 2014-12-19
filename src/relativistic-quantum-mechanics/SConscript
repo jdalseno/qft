@@ -1,0 +1,5 @@
+Import('*')
+
+src_rqm = Glob('*.C')
+
+Export(['env', 'src_rqm'])
