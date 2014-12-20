@@ -2,7 +2,7 @@ Build Instructions
 Type 'scons' in base directory
 
 Install Instruction
-Type 'scons --prefix=<install dir>'
+Type 'scons --install=<install dir>'
 Upgrade users permissions if necessary
 
 For full package documentation, see 
