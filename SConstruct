@@ -5,6 +5,7 @@ env = Environment(ENV=os.environ)
 # Set up compilation environment
 env.Append(CPPPATH = ['#include'])
 env.Append(CXXFLAGS = ['-O3', '-Wall', '-pedantic',  '-Werror', '-std=c++11'])
+#env.Append(CXXFLAGS = ['-O3', '-Wall', '-Wextra', '-pedantic',  '-Werror', '-std=c++11'])
 env.Append(LIBPATH = ['/home/jdalseno/qft++_test'])
 
 #Export environment
@@ -14,17 +15,20 @@ Export('env')
 SConscript('SConscript')
 
 # Set up installation environment
-AddOption('--prefix',
-	  dest='prefix',
+AddOption('--install',
+	  dest='install',
           type='string',
           nargs=1,
           action='store',
           metavar='DIR',
-          help='installation prefix')
+          help='Installation directory')
 
-install = GetOption('prefix')
+install = GetOption('install')
 
 if install != None:
+   if os.path.isfile('lib/libqft++.so') is False:
+      print '\033[91m' 'ERROR: ' '\033[0m' 'qft++ needs to be built first'
+      quit()
    if not os.path.exists(install):
        os.makedirs(install)
    os.system('cp -r include ' + install)
@@ -32,4 +36,3 @@ if install != None:
    os.system('cp -r lib ' + install)
    os.system('rm -f ' + install + '/src/SConscript')
    os.system('rm -f ' + install + '/src/*/SConscript')
-
