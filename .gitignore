@@ -1,1 +1,9 @@
 .sconsign.dblite
+*.p
+*.o
+*.os
+lib/
+tutorials/compton_scattering
+tutorials/gamma.p--p.pi_thru_t-channel-rho-exchange
+tutorials/matrix
+tutorials/tensor
