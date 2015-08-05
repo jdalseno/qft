@@ -49,7 +49,7 @@ using namespace std;
 
 /// Return @a zero for the type (defaults to numeric 0)
 template <typename _Tp> 
-inline _Tp zero(const _Tp &__var){return 0; std::cout << __var << std::endl;}
+inline _Tp zero(const _Tp &__var){return 0; (void)__var;}
 
 /// Return the conjugate for the type (defualts to the variable itself)
 template <typename _Tp> inline _Tp conj(const _Tp &__var){return __var;}
@@ -59,7 +59,7 @@ template <typename _Tp> inline _Tp imag(const _Tp &__var){return 0;}
 
 /// Return @a unity for the type (defaults to numeric 1)
 template <typename _Tp> 
-inline _Tp unity(const _Tp &__var){return 1; std::cout << __var << std::endl;}
+inline _Tp unity(const _Tp &__var){return 1; (void)__var;}
 //_____________________________________________________________________________
 
 #endif /* _TemplateUtilFuncs_H */
