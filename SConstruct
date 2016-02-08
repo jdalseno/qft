@@ -4,9 +4,7 @@ env = Environment(ENV=os.environ)
 
 # Set up compilation environment
 env.Append(CPPPATH = ['#include'])
-env.Append(CXXFLAGS = ['-O3', '-Wall', '-pedantic',  '-Werror', '-std=c++11'])
-#env.Append(CXXFLAGS = ['-O3', '-Wall', '-Wextra', '-pedantic',  '-Werror', '-std=c++11'])
-env.Append(LIBPATH = ['/home/jdalseno/qft++_test'])
+env.Append(CXXFLAGS = ['-O3', '-Wall', '-Wextra', '-pedantic',  '-Werror', '-std=c++14'])
 
 #Export environment
 Export('env')
@@ -36,3 +34,4 @@ if install != None:
    os.system('cp -r lib ' + install)
    os.system('rm -f ' + install + '/src/SConscript')
    os.system('rm -f ' + install + '/src/*/SConscript')
+   print 'Installation complete'

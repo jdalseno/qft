@@ -2,8 +2,7 @@ Build Instructions
 Type 'scons' in the base directory
 
 Install Instruction
-Type 'scons --install=<install dir>'
-Upgrade user permissions if necessary
+Type '(sudo) scons --install=<install dir>'
 
 For full package documentation, see 
 http://www-meg.phys.cmu.edu/williams/qft++/index.php/main_page
