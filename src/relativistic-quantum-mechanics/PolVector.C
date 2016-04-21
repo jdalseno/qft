@@ -32,7 +32,7 @@ void PolVector::_Init(const Spin &__spin){
 }
 //_____________________________________________________________________________
 
-void PolVector::SetP4(const Vector4<double> &__p4,double __mass){
+void PolVector::SetP4(const Vector4<double> &__p4,const double &__mass){
 
   this->Zero();
   _mass = __mass;
@@ -113,7 +113,7 @@ Tensor<complex<double> > PolVector::Propagator() const {
 }
 //_____________________________________________________________________________
 
-Tensor<complex<double> > PolVector::PropagatorBW(double __width) const {
+Tensor<complex<double> > PolVector::PropagatorBW(const double &__width) const {
 
   Tensor<complex<double> > prop((int)(2*_spin));
   prop = (this->_projector)/(_p4.M2() - _mass*_mass 
@@ -124,7 +124,7 @@ Tensor<complex<double> > PolVector::PropagatorBW(double __width) const {
 
 void PolVector::Projector(const Spin &__j,int __rank,
 			  const Vector4<double> &__p4,
-			  double __mass,Tensor<complex<double> > &__projector){
+			  const double &__mass,Tensor<complex<double> > &__projector){
   
   if(__j.Denominator() == 2){
     cout << "Error! <PolVector::Projector> Spin must be integral." << endl;

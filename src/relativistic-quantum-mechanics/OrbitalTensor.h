@@ -106,7 +106,7 @@ public:
   }
 
   /// Assignment operator
-  OrbitalTensor& operator=(double __x){
+  OrbitalTensor& operator=(const double &__x){
     this->Tensor<double>::operator=(__x);
     return *this;
   }

@@ -213,7 +213,8 @@ public:
    * coefficents coupling spin-(n = S-1/2) and spin-1/2 to spin-S
    * (see Clebsch()).
    */
-  void SetP4(const Vector4<double> &__p4,double __mass);
+  void SetP4(const Vector4<double> &__p4,
+	     const double &__mass);
 
   // Getters:
   
@@ -283,7 +284,7 @@ public:
    * Note: This is slow, for speed use Projector() and do the division after
    *       any matrix/tensor operations.
    */
-  Matrix<Tensor<complex<double> > > PropagatorBW(double __width) const {
+  Matrix<Tensor<complex<double> > > PropagatorBW(const double &__width) const {
     Matrix<Tensor<complex<double> > > prop(4,4);  
     prop = (this->Projector()*2.*_mass)*BreitWigner(_p4,_mass,__width);
     return prop;
@@ -322,7 +323,9 @@ public:
    * of the boosted spinor and polarization vector according to the equation
    * given in SetP4(). 
    */
-  void Boost(double __bx,double __by,double __bz);
+  void Boost(const double &__bx,
+	     const double &__by,
+	     const double &__bz);
 
   /// Boost the spinor to p4's rest frame (see Boost(double,double,double)).
   void Boost(const Vector4<double> &__p4) {
@@ -366,8 +369,9 @@ public:
    *
    * Builds the spin-<em>j</em> projection operator in @a rank space.
    */
-  static void Projector(const Spin &__j,int __rank,const Vector4<double> &__p4,
-			double __mass,
+  static void Projector(const Spin &__j,int __rank,
+			const Vector4<double> &__p4,
+			const double &__mass,
 			Matrix<Tensor<complex<double> > > &__projector);
 
 };

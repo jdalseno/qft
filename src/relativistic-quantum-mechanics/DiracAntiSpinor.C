@@ -23,7 +23,8 @@
  */
 //_____________________________________________________________________________
 
-void DiracAntiSpinor::SetP4(const Vector4<double> &__p4,double __mass){
+void DiracAntiSpinor::SetP4(const Vector4<double> &__p4,
+			    const double &__mass){
 
   Matrix <complex<double> > sigP(2,2);
   Matrix <complex<double> > chi(2,1);
@@ -56,7 +57,9 @@ void DiracAntiSpinor::SetP4(const Vector4<double> &__p4,double __mass){
 }
 //_____________________________________________________________________________
 
-void DiracAntiSpinor::Boost(double __bx,double __by,double __bz) {
+void DiracAntiSpinor::Boost(const double &__bx,
+			    const double &__by,
+			    const double &__bz) {
 
   _p4.Boost(__bx,__by,__bz);
   this->_SetProjector();

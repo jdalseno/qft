@@ -24,6 +24,10 @@
 //_____________________________________________________________________________
 
 void DiracSpinor::_Init(const Spin &__spin) {
+  if( __spin.Denominator() != 2 ){
+    std::cout << "ERROR: Only half-integer spin permitted" << std::endl;
+    abort();
+  }
   _spin = __spin;
   int two_S = (int)(2*__spin);
   _spinors.resize(two_S + 1);
@@ -47,7 +51,8 @@ void DiracSpinor::_Copy(const DiracSpinor &__dspin){
 }
 //_____________________________________________________________________________
 
-void DiracSpinor::SetP4(const Vector4<double> &__p4,double __mass){
+void DiracSpinor::SetP4(const Vector4<double> &__p4,
+			const double& __mass){
 
   this->Zero();
   _p4 = __p4;
@@ -112,7 +117,9 @@ void DiracSpinor::_SetProjector() {
 }
 //_____________________________________________________________________________
   
-void DiracSpinor::Boost(double __bx,double __by,double __bz){
+void DiracSpinor::Boost(const double &__bx,
+			const double &__by,
+			const double &__bz){
 
   if(_spin == 1/2.){ 
     double beta = sqrt(__bx*__bx + __by*__by + __bz*__bz);
@@ -164,7 +171,8 @@ void DiracSpinor::Boost(double __bx,double __by,double __bz){
 //_____________________________________________________________________________
 
 void DiracSpinor::Projector(const Spin &__j,int __rank,
-			    const Vector4<double> &__p4,double __mass,
+			    const Vector4<double> &__p4,
+			    const double &__mass,
 			    Matrix<Tensor<complex<double> > > &__projector){
   if(__j.Denominator() == 1){
     cout << "Error! <DiracSpinor::Projector> Spin must be half-integral." 

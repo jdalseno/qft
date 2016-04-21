@@ -53,7 +53,7 @@ vector<LS> GetValidLS(const Spin &__j,int __parity,const Spin &__s1,int __p1,
  *   If \f$ z > 0\f$, returns \f$ \Gamma (z) \f$. If \f$ z = 0\f$ returns 0.
  *   If \f$ z < 0\f$ returns \f$ \frac{-\pi}{|z| \Gamma (|z|) sin(\pi |z|)}\f$.
  */
-double Gamma(double __z);
+double Gamma(const double &__z);
 //_____________________________________________________________________________
 /** @brief  Calcultates Clebsch-Gordon coeficents.
  *
@@ -72,14 +72,17 @@ double Clebsch(const Spin &__j1,const Spin &__m1,const Spin &__j2,
  *  This function was copied from one written by D.P. Weygand. It shouldn't be
  *  used for spins higher than about 11/2 or 8.
  */
-double Wigner_d(const Spin &__j,const Spin &__m,const Spin &__n,double __beta);
+double Wigner_d(const Spin &__j,const Spin &__m,const Spin &__n,
+		double __beta);
 //_____________________________________________________________________________
 /** Returns the Wigner D-function \f$D^{j}_{m,n}(\alpha,\beta,\gamma)\f$.
  *  This function uses the single spin Wigner_d function, thus it shares its
  *  limitations regarding higher spins.
  */
-inline complex<double> Wigner_D(double __alpha,double __beta,double __gamma,
-			const Spin &__j,const Spin &__m,const Spin &__n){
+inline complex<double> Wigner_D(const double &__alpha,const double &__beta,
+				const double &__gamma,
+				const Spin &__j,const Spin &__m,
+				const Spin &__n){
   complex<double> i(0.,1.);
   return exp(-i*(__m*__alpha + __n*__gamma))*Wigner_d(__j,__m,__n,__beta);
 }
@@ -89,25 +92,27 @@ inline complex<double> Wigner_D(double __alpha,double __beta,double __gamma,
  *  performed recursively, thus these are valid to much higher spin than the
  *  single-spin version.
  */
-void Wigner_d(const Spin &__jmax,double __beta,
+void Wigner_d(const Spin &__jmax,const double &__beta,
 	      map<Spin,map<Spin,map<Spin,double> > > &__d);
 //_____________________________________________________________________________
 /** Fills @a D w/ \f$D^{j}_{m,n}(\alpha,\beta,\gamma)\f$. Uses the recursive
  *  Wigner_d, thus these should be valid to much higher spin than the single
  *  spin version.
  */
-void Wigner_D(const Spin &__jmax,double __alpha,double __beta,double __gamma,
+void Wigner_D(const Spin &__jmax,const double &__alpha,const double &__beta,
+	      const double &__gamma,
 	      map<Spin,map<Spin,map<Spin,complex<double> > > > &__D);
 //_____________________________________________________________________________
 /// Returns \f$ \frac{m\Gamma}{p^2 - m^2 + i m \Gamma} \f$
-inline complex<double> BreitWigner(const Vector4<double> &__p4,double __mass,
-				   double __width){
+inline complex<double> BreitWigner(const Vector4<double> &__p4,
+				   const double &__mass,const double &__width){
   complex<double> i(0.,1.);
   return __mass*__width/(__p4*__p4 - __mass*__mass + i*__mass*__width);
 }
 //_____________________________________________________________________________
 /// Returns \f$ \frac{\Lambda^2 - m^2}{\Lambda^2 - p^2} \f$
-inline double MonopoleFormFactor(double __lambda,double __mass,double __p2){
+inline double MonopoleFormFactor(const double &__lambda,const double &__mass,
+				 const double &__p2){
   return (__lambda*__lambda - __mass*__mass)/(__lambda*__lambda - __p2);
 }
 //_____________________________________________________________________________
@@ -131,7 +136,8 @@ inline double MonopoleFormFactor(double __lambda,double __mass,double __p2){
  * where \f$\alpha(x) = a\cdot x + b \f$, \f$S\f$ is the signature, \f$F\f$ is
  * the exponential factor and \f$J\f$ is the spin.
  */
-complex<double> ReggePropagator(double __t,double __s,double __a,double __b,
+complex<double> ReggePropagator(const double &__t,const double &__s,
+				const double &__a,const double &__b,
 				const Spin &__spin,int __sig,
 				int __exp_factor = 1);
 //_____________________________________________________________________________

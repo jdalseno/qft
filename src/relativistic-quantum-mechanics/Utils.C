@@ -22,7 +22,7 @@
  */
 //_____________________________________________________________________________
 /// Utility function used by Clebsch 
-inline double dfact(double __x){
+inline double dfact(const double &__x){
   if((__x < 0.00001) && (__x >= 0.0)) return 1.;
   if(__x < 0) return 0.;
   return __x*dfact(__x - 1.);
@@ -66,7 +66,7 @@ vector<LS> GetValidLS(const Spin &__j,int __parity,const Spin &__s1,int __p1,
 }
 //_____________________________________________________________________________
 
-double Gamma(double __z){
+double Gamma(const double &__z){
   
   float x = abs(__z);
   // Coefficients for the series expansion
@@ -145,7 +145,8 @@ double Clebsch(const Spin &__j1,const Spin &__m1,const Spin &__j2,
 }
 //_____________________________________________________________________________
 
-double Wigner_d(const Spin &__j,const Spin &__m,const Spin &__n,double __beta){
+double Wigner_d(const Spin &__j,const Spin &__m,const Spin &__n,
+		double __beta){
 
   int J = (int)(2.*__j);
   int M = (int)(2.*__m);
@@ -203,7 +204,8 @@ double Wigner_d(const Spin &__j,const Spin &__m,const Spin &__n,double __beta){
 }
 //_____________________________________________________________________________
 
-complex<double> ReggePropagator(double __t,double __s,double __a,double __b,
+complex<double> ReggePropagator(const double &__t,const double &__s,
+				const double &__a,const double &__b,
 				const Spin &__spin,int __sig,int __exp_fact){
  
   complex<double> prop,numerator,denominator;
@@ -241,7 +243,7 @@ Spin GetSpin(const string &__spin){
 }
 //_____________________________________________________________________________
 
-void Wigner_d(const Spin &__jmax,double __beta,
+void Wigner_d(const Spin &__jmax,const double &__beta,
 	      map<Spin,map<Spin,map<Spin,double> > > &__d){
   __d.clear();
   Spin jmin,one_half = 1/2.;
@@ -304,7 +306,8 @@ void Wigner_d(const Spin &__jmax,double __beta,
 }
 //_____________________________________________________________________________
 
-void Wigner_D(const Spin &__jmax,double __alpha,double __beta,double __gamma,
+void Wigner_D(const Spin &__jmax,const double &__alpha,const double &__beta,
+	      const double &__gamma,
 	      map<Spin,map<Spin,map<Spin,complex<double> > > > &__D){
 
   complex<double> i(0.,1.);

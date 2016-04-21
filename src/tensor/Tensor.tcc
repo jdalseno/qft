@@ -153,7 +153,9 @@ Tensor<_Tp>::Contract(const Tensor<T> &__tensor,int __num_indicies) const {
 //_____________________________________________________________________________
 
 template <typename _Tp> 
-void Tensor<_Tp>::Boost(double __bx,double __by,double __bz){
+void Tensor<_Tp>::Boost(const double &__bx,
+			const double &__by,
+			const double &__bz){
    
   // check to see if bx,by,bz are all less than 1
   if(abs(__bx) >= 1 || abs(__by) >= 1 || abs(__bz) >= 1)
@@ -161,8 +163,8 @@ void Tensor<_Tp>::Boost(double __bx,double __by,double __bz){
   assert((abs(__bx) < 1)&&(abs(__by)<1)&&(abs(__bz)<1));
 
   Tensor<double> lt(2); // Lorentz transformation tensor
-  double gamma = 1.0/sqrt(1.0 - __bx*__bx - __by*__by - __bz*__bz);
-  double gamFact = (gamma*gamma)/(gamma + 1.0);
+  const double gamma = 1.0/sqrt(1.0 - __bx*__bx - __by*__by - __bz*__bz);
+  const double gamFact = (gamma*gamma)/(gamma + 1.0);
 
   // set up the Lorentz transformation tensor
   lt.Zero();
@@ -193,14 +195,16 @@ void Tensor<_Tp>::Boost(double __bx,double __by,double __bz){
 //_____________________________________________________________________________
 
 template <typename _Tp> 
-void Tensor<_Tp>::Rotate(double __alpha,double __beta,double __gamma){
+void Tensor<_Tp>::Rotate(const double &__alpha,
+			 const double &__beta,
+			 const double &__gamma){
     
-  double ca = cos(__alpha);
-  double sa = sin(__alpha);
-  double cb = cos(__beta);
-  double sb = sin(__beta);
-  double cg = cos(__gamma);
-  double sg = sin(__gamma);
+  const double ca = cos(__alpha);
+  const double sa = sin(__alpha);
+  const double cb = cos(__beta);
+  const double sb = sin(__beta);
+  const double cg = cos(__gamma);
+  const double sg = sin(__gamma);
 
   Tensor<double> lt(2); // Lorentz transformation tensor
 
@@ -225,9 +229,9 @@ void Tensor<_Tp>::Rotate(double __alpha,double __beta,double __gamma){
 //_____________________________________________________________________________
 
 template <typename _Tp> 
-void Tensor<_Tp>::RotateX(double __alpha){
-  double ca = cos(__alpha);
-  double sa = sin(__alpha);
+void Tensor<_Tp>::RotateX(const double& __alpha){
+  const double ca = cos(__alpha);
+  const double sa = sin(__alpha);
   Tensor<double> lt(2); // Lorentz transformation tensor
   lt.Zero();
 
@@ -243,9 +247,9 @@ void Tensor<_Tp>::RotateX(double __alpha){
 //_____________________________________________________________________________
 
 template <typename _Tp> 
-void Tensor<_Tp>::RotateY(double __alpha){
-  double ca = cos(__alpha);
-  double sa = sin(__alpha);
+void Tensor<_Tp>::RotateY(const double &__alpha){
+  const double ca = cos(__alpha);
+  const double sa = sin(__alpha);
   Tensor<double> lt(2); // Lorentz transformation tensor
   lt.Zero();
 
@@ -261,9 +265,9 @@ void Tensor<_Tp>::RotateY(double __alpha){
 //_____________________________________________________________________________
 
 template <typename _Tp> 
-void Tensor<_Tp>::RotateZ(double __alpha){
-  double ca = cos(__alpha);
-  double sa = sin(__alpha);
+void Tensor<_Tp>::RotateZ(const double &__alpha){
+  const double ca = cos(__alpha);
+  const double sa = sin(__alpha);
   Tensor<double> lt(2); // Lorentz transformation tensor
   lt.Zero();
 

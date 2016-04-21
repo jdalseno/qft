@@ -146,7 +146,8 @@ public:
    *
    * This function also sets the projection operator (see SetProjector()).
    */
-  void SetP4(const Vector4<double> &__p4,double __mass);
+  void SetP4(const Vector4<double> &__p4,
+	     const double &__mass);
 
   // Getters:
 
@@ -194,7 +195,7 @@ public:
    * \f$P\rightarrow\f$ _p4 and 
    * \f$P^{(\frac{1}{2})}(P)\f$ is returned by Projector().
    */
-  Matrix<complex<double> > PropagatorBW(double __width) const{
+  Matrix<complex<double> > PropagatorBW(const double &__width) const{
     Matrix<complex<double> > prop(4,4);  
     prop = (this->_projector*2.*_mass)*BreitWigner(_p4,_mass,__width);
     return prop;
@@ -214,7 +215,9 @@ public:
    * \f[ u(P,M) = D(\vec{\beta}) u(P',M) \f]
    * where \f$P(P')\f$ is the momentum in the boosted(original) frame.
   */
-  void Boost(double __bx,double __by,double __bz);
+  void Boost(const double &__bx,
+	     const double &__by,
+	     const double &__bz);
 
   /// Boost the spinor to p4's rest frame (see Boost(double,double,double)).
   void Boost(const Vector4<double> &__p4){

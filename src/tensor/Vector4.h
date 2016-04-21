@@ -46,8 +46,10 @@ public:
   Vector4() : Tensor<_Tp>::Tensor(1) {/** Default Constructor */}
 
   /// Constructor (initialize the 4-vector to be (t,x,y,z))
-  Vector4(typename Type<_Tp>::ParamType __t,typename Type<_Tp>::ParamType __x,
-	  typename Type<_Tp>::ParamType __y,typename Type<_Tp>::ParamType __z)
+  Vector4(const typename Type<_Tp>::ParamType &__t,
+	  const typename Type<_Tp>::ParamType &__x,
+	  const typename Type<_Tp>::ParamType &__y,
+	  const typename Type<_Tp>::ParamType &__z)
     : Tensor<_Tp>::Tensor(1) {
     this->SetV4(__t,__x,__y,__z);
   }
@@ -60,10 +62,10 @@ public:
   // Setters:
 
   /// Set the 4-vector to (t,x,y,z)
-  void SetV4(typename Type<_Tp>::ParamType __t,
-	     typename Type<_Tp>::ParamType __x,
-	     typename Type<_Tp>::ParamType __y,
-	     typename Type<_Tp>::ParamType __z){
+  void SetV4(const typename Type<_Tp>::ParamType &__t,
+	     const typename Type<_Tp>::ParamType &__x,
+	     const typename Type<_Tp>::ParamType &__y,
+	     const typename Type<_Tp>::ParamType &__z){
     this->Element(0) = __t;
     this->Element(1) = __x;
     this->Element(2) = __y;
@@ -71,10 +73,10 @@ public:
   }
 
   /// Set the 4-vector to (e,px,py,pz)
-  inline void SetP4(typename Type<_Tp>::ParamType __e,
-		    typename Type<_Tp>::ParamType __px,
-		    typename Type<_Tp>::ParamType __py,
-		    typename Type<_Tp>::ParamType __pz){
+  inline void SetP4(const typename Type<_Tp>::ParamType &__e,
+		    const typename Type<_Tp>::ParamType &__px,
+		    const typename Type<_Tp>::ParamType &__py,
+		    const typename Type<_Tp>::ParamType &__pz){
     this->SetV4(__e,__px,__py,__pz);
   }
 

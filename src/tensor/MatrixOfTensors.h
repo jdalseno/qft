@@ -76,7 +76,9 @@ void SetTensorElement(Matrix<Tensor<T> > &__matrix,
 /// Boost a Matrix of Tensors by boost vector (bx,by,bz)
 template <typename T>
 Matrix<Tensor<T> > BoostMatrix(const Matrix<Tensor<T> > &__matrix,
-			       double __bx,double __by,double __bz){
+			       const double &__bx,
+			       const double &__by,
+			       const double &__bz){
   int rows = __matrix.NumRows();
   int cols = __matrix.NumCols();  
   Matrix<Tensor<T> > ret(__matrix);

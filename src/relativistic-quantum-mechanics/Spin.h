@@ -61,7 +61,7 @@ private:
   }
 
   /// Build a rational spin from a double
-  void _BuildFromDouble(double __x){
+  void _BuildFromDouble(const double &__x){
     int x_int = (int)__x;
     if(abs(__x - x_int) < 1.e-5) { // integer spin
       _numer = x_int;
@@ -106,7 +106,7 @@ public:
   }
 
   /// Constructor (@a spin must be a valid integral or half-integral spin)
-  Spin(double __spin){
+  Spin(const double &__spin){
     this->_BuildFromDouble(__spin);
   }
 
@@ -152,7 +152,7 @@ public:
   }
 
   /// Assignment operator
-  inline Spin& operator=(double __spin){
+  inline Spin& operator=(const double &__spin){
     this->_BuildFromDouble(__spin);
     return *this;
   }

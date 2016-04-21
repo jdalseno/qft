@@ -177,7 +177,9 @@ private:
   void _SetProjector();
 
   /// Boost the pol vectors using boost vector \f$ \vec{\beta}=(bx,by,bz) \f$
-  inline void _BoostPolVectors(double __bx,double __by,double __bz){
+  inline void _BoostPolVectors(const double &__bx,
+			       const double &__by,
+			       const double &__bz){
     int size = (int)(2*_spin + 1);
     for(int i = 0; i < size; i++) _pols[i].Boost(__bx,__by,__bz);  
   }
@@ -229,7 +231,7 @@ public:
    * where \f$ ((S-1)m_{S-1}1m_1|Sm) \f$ are the Clebsch-Gordon coefficents
    * coupling spin-(S-1) and spin-1 to spin-S (see Clebsch()).
    */
-  void SetP4(const Vector4<double> &__p4,double __mass);
+  void SetP4(const Vector4<double> &__p4,const double &__mass);
 
   // Getters:
 
@@ -285,7 +287,7 @@ public:
    * Note: This is slow, for speed use Projector() and do the division after
    *       any matrix/tensor operations.
    */
-  Tensor<complex<double> > PropagatorBW(double __width = 0.) const;
+  Tensor<complex<double> > PropagatorBW(const double &__width = 0.) const;
 
   /** Returns \f$ \epsilon_{\mu_1\mu_2\ldots\mu_S}(m) \f$.
    *
@@ -356,8 +358,9 @@ public:
    *
    * Builds the spin-<em>j</em> projection operator in @a rank space.
    */
-  static void Projector(const Spin &__j,int __rank,const Vector4<double> &__p4,
-			double __mass,Tensor<complex<double> > &__projector);
+  static void Projector(const Spin &__j,int __rank,
+			const Vector4<double> &__p4,
+			const double &__mass,Tensor<complex<double> > &__projector);
 };
 //_____________________________________________________________________________
 

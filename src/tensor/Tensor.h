@@ -141,7 +141,9 @@ public:
    *  \Lambda^{\delta}{}_{\mu}(\vec{\beta})\Lambda^{\pi}{}_{\nu}(\vec{\beta}) 
    *  \ldots \f$.
    */
-  void Boost(double __bx,double __by,double __bz);
+  void Boost(const double &__bx,
+	     const double &__by,
+	     const double &__bz);
 
   /// Boost the Tensor to the rest frame of the 4-momentum @a p4.
   void Boost(const Tensor<double> &__p4) {
@@ -152,16 +154,18 @@ public:
   }
 
   /// Rotate the tensor using Euler angles \f$ \alpha,\beta,\gamma \f$.
-  void Rotate(double __alpha,double __beta,double __gamma);
+  void Rotate(const double &__alpha,
+	      const double &__beta,
+	      const double &__gamma);
 
   /// Rotate about the x-axis
-  void RotateX(double __alpha);
+  void RotateX(const double &__alpha);
 
   /// Rotate about the y-axis
-  void RotateY(double __alpha);
+  void RotateY(const double &__alpha);
 
   /// Rotate about the z-axis
-  void RotateZ(double __alpha);
+  void RotateZ(const double &__alpha);
   
   /** Send the values of the tensor elements to @a os.
    *
