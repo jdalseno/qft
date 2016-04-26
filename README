@@ -7,7 +7,7 @@ The qft++ package is a library of C++ classes that facilitate numerical (not alg
 Build Instructions
 Type 'scons' in the base directory
 
-Install Instruction
+Install Instructions
 Type '(sudo) scons --install=<install dir>'
 
 For full package documentation, see 
