@@ -1,3 +1,9 @@
+qft++
+Numerical Object Oriented Quantum Field Theory Calculations
+- Created by Mike Williams
+
+The qft++ package is a library of C++ classes that facilitate numerical (not algebraic) quantum field theory calculations. Mathematical objects such as matrices, tensors, Dirac spinors, polarization and orbital angular momentum tensors, etc. are represented as C++ objects in qft++. The package permits construction of code which closely resembles quantum field theory expressions, allowing for quick and reliable calculations.
+
 Build Instructions
 Type 'scons' in the base directory
 
