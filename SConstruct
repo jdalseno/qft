@@ -4,7 +4,8 @@ env = Environment(ENV=os.environ)
 
 # Set up compilation environment
 env.Append(CPPPATH = ['#include'])
-env.Append(CXXFLAGS = ['-O3', '-Wall', '-Wextra', '-pedantic',  '-Werror', '-std=c++14'])
+#env.Append(CXXFLAGS = ['-O3', '-Wall', '-Wextra', '-pedantic',  '-Werror', '-std=c++14'])
+env.Append(CXXFLAGS = ['-O3', '-Wall', '-Wextra', '-pedantic',  '-Werror'])
 
 #Export environment
 Export('env')
