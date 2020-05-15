@@ -17,7 +17,7 @@
  * along with qft++.  If not, see <http://www.gnu.org/licenses/>.
  */
 #ifndef _OrbitalTensor_H
-#define _OrbtialTensor_H
+#define _OrbitalTensor_H
 //_____________________________________________________________________________
 /** @file OrbitalTensor.h
  *  @brief OrbitalTensor class definition file
@@ -176,4 +176,4 @@ public:
 };
 //_____________________________________________________________________________
 
-#endif /* _OrbtialTensor_H */
+#endif /* _OrbitalTensor_H */
